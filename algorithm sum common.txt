@@ -1,0 +1,24 @@
+//problem 2 with hash table
+ALGORITHM sum_common
+VAR
+i: INTEGER;
+sum_common: INTEGER;
+set_1:= {3, 1, 7, 9};
+set_2:= {2, 4, 1, 9, 3};
+set_3:= set_1.concat(set_2)
+htab:=  HASH_TABLE< INTEGER ,INTEGER>;
+BEGIN
+sum_common=0;
+FOR i FROM 0 TO set_3.length STEP 1  DO
+IF (htab.lookup(set_3[i]=true ) THEN
+    htab.insert(set_3[i],htab.get(set_3[i])+1)
+ELSE
+    htab.insert(set_3[i],1);
+    END_IF
+END_FOR
+FOR i FROM 0 TO set_3.length STEP 1  DO
+    IF (htab.get(set_3[i])=2) THEN
+    sum_common=sum_distunc+(set_3[i]*2);
+    END_IF
+END_FOR
+END

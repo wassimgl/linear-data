@@ -1,0 +1,26 @@
+// problem 2 with array
+ALGORITHM sum_common
+VAR
+    set_1: ARRAY_OF INTEGER [5];
+    set_2: ARRAY_OF INTEGER[5];
+i,j,sum_equal: INTEGER;
+value: BOOLEAN;
+BEGIN
+set_1 := {12, 13, 6, 10};
+set_2 := {13, 10, 16, 15};
+    sum_equal:=0;
+    value:= false;
+FOR i FROM 0 TO set_1.length STEP 1  DO
+FOR j FROM 0 TO set_2.length STEP 1  DO
+    IF ( set_1[i]=set_2[j]) THEN
+        value= true;
+    ELSE
+        value= false;
+    END_IF
+END_FOR
+    IF (value= true) THEN
+        sum_equal=sum_equal+(set_1[i]*2);
+    END_IF
+END_FOR
+write('sum_equal')
+END
